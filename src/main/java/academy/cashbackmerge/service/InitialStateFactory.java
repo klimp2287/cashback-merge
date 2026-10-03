@@ -1,12 +1,11 @@
 package academy.cashbackmerge.service;
 
-import academy.cashbackmerge.model.GameState;
-import academy.cashbackmerge.model.Position;
-import academy.cashbackmerge.model.Tile;
 import academy.cashbackmerge.config.GameConfig;
 import academy.cashbackmerge.config.SpawnRule;
 import academy.cashbackmerge.model.Board;
-
+import academy.cashbackmerge.model.GameState;
+import academy.cashbackmerge.model.Position;
+import academy.cashbackmerge.model.Tile;
 import java.util.Random;
 
 public class InitialStateFactory {

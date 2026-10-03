@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import academy.cashbackmerge.config.GameConfig;
-import academy.cashbackmerge.model.GameState;
-import academy.cashbackmerge.service.InitialStateFactory;
-import academy.cashbackmerge.model.Position;
 import academy.cashbackmerge.config.SpawnRule;
+import academy.cashbackmerge.model.GameState;
+import academy.cashbackmerge.model.Position;
 import academy.cashbackmerge.model.Tile;
+import academy.cashbackmerge.service.InitialStateFactory;
 import java.math.BigDecimal;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
