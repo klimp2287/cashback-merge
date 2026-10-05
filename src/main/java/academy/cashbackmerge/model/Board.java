@@ -23,4 +23,12 @@ public class Board {
     public boolean isEmpty(Position position) {
         return getTile(position) == null;
     }
+
+    public int getWidth() {
+        return BOARD_SIZE;
+    }
+
+    public int getHeight() {
+        return BOARD_SIZE;
+    }
 }

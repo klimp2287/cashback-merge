@@ -5,13 +5,12 @@ import academy.cashbackmerge.model.Position;
 import academy.cashbackmerge.model.Tile;
 
 public class BoardPrinter {
-    private static final int MAX_BOARD_INDEX = 3;
 
     public String print(Board board) {
         StringBuilder result = new StringBuilder();
 
-        for (int y = 0; y <= MAX_BOARD_INDEX; y++) {
-            for (int x = 0; x <= MAX_BOARD_INDEX; x++) {
+        for (int y = 0; y < board.getHeight(); y++) {
+            for (int x = 0; x < board.getWidth(); x++) {
                 Tile tile = board.getTile(new Position(x, y));
 
                 if (tile == null) {
@@ -20,12 +19,12 @@ public class BoardPrinter {
                     result.append(tile.cashback());
                 }
 
-                if (x < MAX_BOARD_INDEX) {
+                if (x < board.getWidth() - 1) {
                     result.append(" ");
                 }
             }
 
-            if (y < MAX_BOARD_INDEX) {
+            if (y < board.getHeight() - 1) {
                 result.append("\n");
             }
         }
