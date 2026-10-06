@@ -43,6 +43,8 @@ tasks.named<JavaExec>("run") {
 }
 
 dependencies {
+    implementation("org.projectlombok:lombok:1.18.30")
+
     implementation(libs.picocli)
 
     implementation(platform(libs.jackson.bom))

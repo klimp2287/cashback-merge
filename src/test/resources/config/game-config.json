@@ -1,0 +1,13 @@
+{
+  "movesLimit": 5,
+  "spawnRules": [
+    {
+      "cashback": 1,
+      "probability": 0.85
+    },
+    {
+      "cashback": 2,
+      "probability": 0.15
+    }
+  ]
+}
