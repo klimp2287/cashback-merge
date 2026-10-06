@@ -1,17 +1,19 @@
 package academy.cashbackmerge.model;
 
 public class Board {
+
     public static final int BOARD_SIZE = 4;
+
     private final Tile[][] tiles = new Tile[BOARD_SIZE][BOARD_SIZE];
 
     public Tile getTile(Position position) {
         checkPosition(position);
-        return tiles[position.y()][position.x()];
+        return tiles[position.x()][position.y()];
     }
 
     public void setTile(Position position, Tile tile) {
         checkPosition(position);
-        tiles[position.y()][position.x()] = tile;
+        tiles[position.x()][position.y()] = tile;
     }
 
     private void checkPosition(Position position) {
