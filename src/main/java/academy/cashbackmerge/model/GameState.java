@@ -1,3 +1,3 @@
 package academy.cashbackmerge.model;
 
-public record GameState(Board board, int moves, int score) {}
+public record GameState(Board board, int moves, int score, boolean gameOver) {}

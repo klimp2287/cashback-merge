@@ -17,7 +17,7 @@ public class InitialStateFactory {
         Position position = createRandomPosition(random);
         board.setTile(position, tile);
 
-        return new GameState(board, 0, 0);
+        return new GameState(board, 0, 0, false);
     }
 
     private Tile createRandomTile(Random random, GameConfig config) {
