@@ -1,7 +1,6 @@
 package academy.cashbackmerge.service;
 
 import academy.cashbackmerge.config.GameConfig;
-import academy.cashbackmerge.config.SpawnRule;
 import academy.cashbackmerge.model.Board;
 import academy.cashbackmerge.model.Position;
 import academy.cashbackmerge.model.Tile;
@@ -11,26 +10,19 @@ import java.util.Random;
 
 public class TileSpawner {
 
-    private final GameConfig gameConfig;
     private final Random random;
+    private final WeightedTileSelector tileSelector;
 
     public TileSpawner(GameConfig gameConfig, long seed) {
-        this.gameConfig = gameConfig;
         this.random = new Random(seed);
+        this.tileSelector = new WeightedTileSelector(gameConfig);
     }
 
     public void spawn(Board board) {
         Position position = createRandomPosition(board);
-        Tile tile = createRandomTile();
+        Tile tile = tileSelector.select(random);
 
         board.setTile(position, tile);
-    }
-
-    private Tile createRandomTile() {
-        int randomIndex = random.nextInt(gameConfig.spawnRules().size());
-        SpawnRule spawnRule = gameConfig.spawnRules().get(randomIndex);
-
-        return new Tile(spawnRule.cashback());
     }
 
     private Position createRandomPosition(Board board) {

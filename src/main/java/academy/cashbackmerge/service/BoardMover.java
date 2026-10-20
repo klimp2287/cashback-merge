@@ -10,6 +10,8 @@ import java.util.List;
 
 public class BoardMover {
 
+    private static final int MAX_CASHBACK = 32;
+
     private int moveScore;
 
     public int move(Board board, Move move) {
@@ -106,7 +108,8 @@ public class BoardMover {
             Tile currentTile = notEmptyTiles.get(i);
 
             if (i + 1 < notEmptyTiles.size()
-                    && currentTile.cashback() == notEmptyTiles.get(i + 1).cashback()) {
+                    && currentTile.cashback() == notEmptyTiles.get(i + 1).cashback()
+                    && currentTile.cashback() < MAX_CASHBACK) {
 
                 int cashback = currentTile.cashback() * 2;
 

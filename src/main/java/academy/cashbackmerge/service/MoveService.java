@@ -62,4 +62,17 @@ public class MoveService {
 
         return true;
     }
+
+    public boolean hasAvailableMove(GameState state) {
+        for (Move move : Move.values()) {
+            Board board = state.board().copy();
+            boardMover.move(board, move);
+
+            if (!isBoardsEqual(state.board(), board)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

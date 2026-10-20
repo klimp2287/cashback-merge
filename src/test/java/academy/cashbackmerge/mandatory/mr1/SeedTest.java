@@ -1,17 +1,18 @@
 package academy.cashbackmerge.mandatory.mr1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import academy.cashbackmerge.config.GameConfig;
+import academy.cashbackmerge.config.RewardRule;
 import academy.cashbackmerge.config.SpawnRule;
 import academy.cashbackmerge.model.GameState;
 import academy.cashbackmerge.model.Position;
+import academy.cashbackmerge.model.SimulationReport;
 import academy.cashbackmerge.model.Tile;
 import academy.cashbackmerge.service.InitialStateFactory;
+import academy.cashbackmerge.service.SimulationService;
 import java.math.BigDecimal;
 import java.util.List;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -48,9 +49,25 @@ class SeedTest {
     }
 
     @Test
-    @Disabled("MR3: реализуй тест и удали эту строку")
     @DisplayName("Одинаковый конфиг, seed и стратегия дают одинаковый отчёт симуляции")
     void sameInputsProduceSameSimulationReport() {
-        fail("Тест не реализован");
+        GameConfig config = new GameConfig(
+                100,
+                List.of(new SpawnRule(1, new BigDecimal("0.85")), new SpawnRule(2, new BigDecimal("0.15"))),
+                List.of(
+                        new RewardRule(2, 0),
+                        new RewardRule(4, 50),
+                        new RewardRule(8, 150),
+                        new RewardRule(16, 500),
+                        new RewardRule(32, 2000)),
+                32,
+                new BigDecimal("0.20"));
+
+        SimulationService simulationService = new SimulationService(config);
+
+        SimulationReport firstReport = simulationService.simulate(100, 42);
+        SimulationReport secondReport = simulationService.simulate(100, 42);
+
+        assertEquals(firstReport, secondReport);
     }
 }
