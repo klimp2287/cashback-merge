@@ -35,7 +35,7 @@ public final class CliCommand implements Runnable {
             return;
         }
 
-        if ("random".equals(strategy)) {
+        if (!"random".equals(strategy)) {
             throw new IllegalArgumentException("Пока поддерживается только стратегия random");
         }
 
